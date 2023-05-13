@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-size: 140px;
+}
+body {
+  font-family: Tahoma;
+}
+
+.welcome {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgb(33 150 243 / 90%);
+  z-index: 2;
+}
+
+.welcome span {
+  background-color: #ff5722;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 15px 25px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+}
+::-webkit-scrollbar-button {
+  background-color: #333;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #00bcd4;
+}
+
+.container {
+  margin: auto;
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 900px;
+  }
+}
+
+.container .intro {
+  background-color: #f6f6f6;
+  border: 3px solid #2160ca;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.container .game-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.container .game-container.stopped {
+  pointer-events: none;
+}
+.container .game-container .card {
+  border: 4px solid #2160ca;
+  border-radius: 10px;
+  color: white;
+  flex: 1 0 var(--main-size);
+  position: relative;
+  height: var(--main-size);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.container .game-container .flipped,
+.container .game-container .matched {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+.container .game-container .card i {
+  font-size: 80px;
+  margin-top: 30px;
+}
+
+.container .game-container .card .front {
+  background-color: #333;
+  line-height: var(--main-size);
+}
+.container .game-container .card .front::before {
+  content: "?";
+  position: absolute;
+  font-size: 100px;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+.container .game-container .card .back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+.container .game-container .card .face {
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.container .game-container .card.instgram {
+  background-image: linear-gradient(130deg, #c13584 40%, #fcaf45);
+}
+.container .game-container .card.facebook {
+  background-color: #1877f2;
+}
+.container .game-container .card.twitter {
+  background-color: #1da1f2;
+}
+.container .game-container .card.github {
+  background-color: #6e5494;
+}
+.container .game-container .card.youtube {
+  background-color: #ff0000;
+}
+.container .game-container .card.tiktok {
+  background-color: #000000;
+}
+.container .game-container .card.google {
+  background-image: linear-gradient(
+    -130deg,
+    #4285f4 0%,
+    #4285f4 25%,
+    #34a853 25%,
+    #34a853 50%,
+    #fcaf45 50%,
+    #fcaf45 75%,
+    #ea4335 75%,
+    #ea4335 100%
+  );
+}
+.container .game-container .card.telegram {
+  background-color: #0088cc;
+}
+.container .game-container .card.whatsapp {
+  background-color: #25d366;
+}
+.container .game-container .card.messenger {
+  background-color: #fff;
+  color: #0084ff;
+}
+
+.game-over,
+.congrat {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255 0 0 / 0.5);
+  color: #ff0000;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+}
+
+.game-over span,
+.congrat span {
+  background-color: #ffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 4px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 20px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.congrat {
+  background-color: rgb(0 128 0 / 0.5);
+  color: #4234a8;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --main-size: 80px;
+  }
+
+  .container .game-container .card i {
+    font-size: 50px;
+    margin-top: 12px;
+  }
+
+  .container .game-container .card .front::before {
+    font-size: 60px;
+  }
+  .container .intro {
+    font-size: 16px;
+  }
+}
