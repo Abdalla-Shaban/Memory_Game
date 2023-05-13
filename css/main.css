@@ -255,7 +255,7 @@ body {
 
 @media (max-width: 767px) {
   :root {
-    --main-size: 80px;
+    --main-size: 70px;
   }
 
   .container .game-container .card i {
